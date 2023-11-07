@@ -1,4 +1,4 @@
-package com.annton.web2.Filter;
+package com.annton.web2.filter;
 
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
