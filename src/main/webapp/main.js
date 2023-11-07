@@ -4,7 +4,11 @@ const validationMessageR = document.getElementById("validation-message-r");
 const submitButton = document.getElementById("submit-button");
 const checkboxes = document.querySelectorAll('input[name="Y"]');
 const inputX = document.getElementById("X");
-const inputR=document.getElementById("R")
+const inputR=document.getElementById("R");
+const cleanButton=document.getElementById("clean-button")
+
+
+
 checkboxes.forEach(checkbox => {
     checkbox.addEventListener("change", function() {
         checkboxes.forEach(cb => {
@@ -14,8 +18,15 @@ checkboxes.forEach(checkbox => {
         });
     });
 });
+let savedRValue=localStorage.getItem("selectedRValue");
+if (savedRValue){
+    inputR.value=savedRValue;
+}
 
 
+cleanButton.addEventListener("click", function (){
+    localStorage.clear();
+})
 inputX.addEventListener("input",function(){
     const X=inputX.value.replace(",",".");
     if (validateX(X)){
@@ -64,5 +75,16 @@ submitButton.addEventListener("click", function(event) {
 
 
     }
-    document.querySelector("form").submit();})
-;
+    //сохраняем данные введенные с клавиатуры в localStorage(значения X, Y)
+    const point={x:X, y:Y.value};
+    savedPoints.push(point);
+    localStorage.setItem('savedPoints',JSON.stringify(savedPoints));
+
+
+
+
+    document.querySelector("form").submit();}
+)
+
+
+

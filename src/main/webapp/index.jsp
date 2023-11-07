@@ -39,7 +39,7 @@
                 <p>
                     Y:
                     <label>
-                        <input type="checkbox" name="Y" value="3"> -3
+                        <input type="checkbox" name="Y" value="-3"> -3
                     </label>
                     <label>
                         <input type="checkbox" name="Y" value="-2"> -2
@@ -106,6 +106,10 @@
         </td>
 
         <td class="graphik">
+                <canvas id="canvas">
+                </canvas>
+
+
         </td>
     </tr>
 
@@ -142,5 +146,8 @@
 
 </table>
 <script type="text/javascript" src="main.js"></script>
+<script type="text/javascript" src="canvas.js"></script>
+
+
 </body>
 </html>

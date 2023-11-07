@@ -21,8 +21,7 @@ public class ControllerServlet extends HttpServlet {
             HttpSession httpSession=req.getSession();
             httpSession.invalidate();
             resp.sendRedirect(path+"/index.jsp");
-//
-//            getServletContext().getNamedDispatcher("clearServlet").forward(req,resp);
+
         } else if (req.getParameter("X")!=null && req.getParameter("Y")!=null && req.getParameter("R")!=null) {
             getServletContext().getNamedDispatcher("areaCheckServlet").forward(req,resp);
 

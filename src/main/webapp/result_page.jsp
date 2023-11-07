@@ -43,7 +43,7 @@
         <td><%=row.getX()%></td>
         <td><%=row.getY()%></td>
         <td><%=row.getR()%></td>
-        <td><%= row.isResult() ? "Попал" : "Промазал" %></td>
+        <td><%=row.isResult() ? "Попал" : "Промазал" %></td>
         <td><%=row.getLocalDateTime()%></td>
         <td><%=row.getExecutionTime()%></td>
     </tr>

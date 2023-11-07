@@ -29,15 +29,16 @@ body {
 
 
 /* Стили для изображения с классом graphik */
-.graphik {
+.canvas {
     margin: auto;
     height: 70%;
     width: 70%;
+
 }
 
 /* Стили для таблицы с идентификатором result-table */
 #result-table {
-    margin: 0 auto;
+    margin: 30px auto;
     border-collapse: collapse;
     width: 60%;
     border: 1px solid black;
@@ -77,6 +78,16 @@ button {
 .res-container {
     text-align: center; /* Выравниваем элементы по центру горизонтально */
 }
+#centered-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Высота контейнера равна высоте видимой части окна браузера */
+}
 
+h1, form {
+    text-align: center;
+}
 
 

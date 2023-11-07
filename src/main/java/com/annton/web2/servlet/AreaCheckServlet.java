@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -25,14 +26,19 @@ public class AreaCheckServlet extends HttpServlet {
         final double x;
         final double y;
         final double r;
+
         try {
              x=Double.parseDouble(req.getParameter("X"));
              y=Double.parseDouble(req.getParameter("Y"));
              r=Double.parseDouble(req.getParameter("R"));
 
 
-        } catch (NumberFormatException|NullPointerException ignored){
+        } catch (NumberFormatException|NullPointerException e){
+            resp.sendRedirect("/invalid_values.jsp");
             return;
+        }
+        if (!(validX(x) && validY(y) && validR(r))){
+            resp.sendRedirect(path+"/invalid_values.jsp");
         }
 
 
@@ -63,7 +69,7 @@ public class AreaCheckServlet extends HttpServlet {
             return (x*x+y*y<=r*r/4);
         }
         if (x<=0 &&y<=0){
-            return (y<=-2*x-r);
+            return (y>=-2*x-r);
         }
         if (x<=0 &&y>=0){
             return ((x>=-r/2) && (y<=r));
@@ -71,5 +77,16 @@ public class AreaCheckServlet extends HttpServlet {
 
 
         return true;
+    }
+    private boolean validX(double x){
+        return (-3<x && x<3);
+    }
+    private boolean validY(double y){
+        List<Double> arr=Arrays.asList(-3.0,-2.0,-1.0,0.0,1.0,2.0,3.0,4.0,5.0);
+        return arr.contains(y);
+    }
+    private boolean validR(double r){
+        List<Double> arr=Arrays.asList(1.0,2.0,3.0,4.0,5.0);
+        return arr.contains(r);
     }
 }
