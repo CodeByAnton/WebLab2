@@ -25,6 +25,7 @@ public class ControllerServlet extends HttpServlet {
         } else if (req.getParameter("X")!=null && req.getParameter("Y")!=null && req.getParameter("R")!=null) {
             getServletContext().getNamedDispatcher("areaCheckServlet").forward(req,resp);
 
+
         }else {
             resp.sendRedirect(path+"/index.jsp");
         }
